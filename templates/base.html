@@ -1,0 +1,259 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>VGS Worldwide Logistics Ltd</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Free HTML Templates" name="keywords">
+    <meta content="Free HTML Templates" name="description">
+
+    <!-- Favicon -->
+    <link href="{% static 'img/VGSSSS.png' %}" rel="icon">
+   
+    
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="{% static 'lib/owlcarousel/assets/owl.carousel.min.css' %}" rel="stylesheet">
+    <link href="{% static 'lib/lightbox/css/lightbox.min.css' %}" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Header Start -->
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-3 bg-secondary d-none d-lg-block">
+                <a href="" class="navbar-brand w-100 h-100 m-0 p-0 d-flex align-items-center justify-content-center">
+                    <h1 class="vgs">VGS WORLDWIDE<br> LOGISTICS LTD<br></h1>
+                </a>
+            </div>
+            <div class="col-lg-9">
+                <div class="row bg-dark d-none d-lg-flex">
+                    <div class="col-lg-7 text-left text-white">
+                        <div class="h-100 d-inline-flex align-items-center border-right border-primary py-2 px-3">
+                            <i class="fa fa-envelope text-primaryy mr-2"></i>
+                            <small>vgsworldwidelimited@gmail.com</small>
+                        </div>
+                        <div class="h-100 d-inline-flex align-items-center py-2 px-2">
+                            <i class="fa fa-phone-alt text-primaryy mr-2"></i>
+                            <small>+447448196900 / +447424701575</small>
+                        </div>
+                    </div>
+                    <div class="col-lg-5 text-right">
+                        <div class="d-inline-flex align-items-center pr-2">
+                            <a class="text-primary p-2" href="https://www.facebook.com/profile.php?id=61554236597309" target="_blank">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a class="text-primary p-2" href="https://www.instagram.com/vgs_logistic?igsh=dm95dHRjaTg5cWpx" target="_blank">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            
+                            <!-- <a class="text-primary p-2" href="" target="_blank">
+                                <i class="fab fa-youtube"></i>
+                            </a> -->
+                        </div>
+                    </div>
+                </div>
+                <nav class="navbar navbar-expand-lg bg-white navbar-light p-0">
+                    <a href="" class="navbar-brand d-block d-lg-none">
+                        <h1 class="m-0 display-4 text-primary">VGS WORLDWIDE<br> LOGISTICS LTD<br></h1>
+                    </a>
+                    <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+                        <div class="navbar-nav mr-auto py-0">
+                            <a href="{% url 'home' %}" class="nav-item nav-link">Home</a>
+                            <a href="{% url 'about' %}" class="nav-item nav-link">About Us</a>
+                            <a href="{% url 'service' %}" class="nav-item nav-link">Cleaning</a>
+                            <a href="{% url 'waste' %}" class="nav-item nav-link">Waste Enviromental <br>Management</a>
+                            <a href="{% url 'transport' %}" class="nav-item nav-link">Transportation</a>
+                            <a href="{% url 'security' %}" class="nav-item nav-link">Security</a>
+                            <a href="{% url 'contact' %}" class="nav-item nav-link">Contact Us</a>
+                        </div>
+                        
+                        
+                        <!-- <a href="#" class="btn btn-primary mr-3 d-none d-lg-block" id="openQuoteModal">Get A Quote</a>
+
+                        <div class="quoteModal">
+                        <div class="quoteModal-content">
+                            <span class="close">&times;</span>
+                            <form id="quoteForm">
+                            <label for="name">Name:</label>
+                            <input type="text" id="name" name="name" required><br><br>
+                            
+                            <label for="email">Email:</label>
+                            <input type="email" id="email" name="email" required><br><br>
+                            
+                            <label for="message">Message:</label><br>
+                            <textarea id="message" name="message" rows="4" required></textarea><br><br>
+                            
+                            <input type="submit" value="Submit">
+                            </form>
+                        </div>
+                        </div> -->
+
+
+
+
+
+
+
+                        <a href="#" class="btn btn-primaryy d-lg-none" id="openQuoteModalMobile">Get A Quote</a>
+                        <a href="#" class="btn btn-primary mr-3 d-none d-lg-block" id="openQuoteModalDesktop">Get A Quote</a>
+
+                        <div class="quoteModal" id="quoteModal">
+                            <div class="quoteModal-content">
+                                <span class="close">&times;</span>
+                                <form id="quoteForm">
+                                    <label for="name">Name:</label>
+                                    <input type="text" id="name" name="name" required><br><br>
+
+                                    <label for="email">Email:</label>
+                                    <input type="email" id="email" name="email" required><br><br>
+
+                                    <label for="message">Message:</label><br>
+                                    <textarea id="message" name="message" rows="4" required></textarea><br><br>
+
+                                    <input type="submit" value="Submit">
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </div>
+    <!-- Header End -->
+
+{% block content %}
+
+{% endblock %}
+
+    <!-- Footer Start -->
+    <div class="container-fluid bg-dark text-white mt-5 py-5 px-sm-3 px-md-5">
+        <div class="row pt-5">
+            <div class="col-lg-3 col-md-6 mb-5">
+                <a href="{% url 'home' %}" class="navbar-brand">
+                    <h1 class="vgs">VGS WORLDWIDE<BR> LOGISTICS LTD</h1>
+                </a>
+                <p>Cleaner, Greener, Connected: Transforming Spaces, Preserving Places.</p>
+                <h5 class="font-weight-semi-bold text-white mb-2">WE ARE AVAILABLE 24/7</h5>
+                
+            </div>
+            <div class="col-lg-3 col-md-6 mb-5">
+                <h4 class="font-weight-semi-bold text-primaryy mb-4">Get In Touch</h4>
+                <p><i class="fa fa-map-marker-alt text-primaryy mr-2"></i>17, Rowden Road Oldham OL4 5NR Manchester</p>
+                <p><i class="fa fa-phone-alt text-primaryy mr-2"></i>+447448196900<br>+447424701575</p>
+                <p><i class="fa fa-envelope text-primaryy mr-2"></i>vgsworldwidelimited@gmail.com <br> tonsytonny@yahoo.com</p> 
+                <div class="d-flex justify-content-start mt-4">
+                    
+                    <a class="btn btn-light btn-social mr-2" href="https://www.facebook.com/profile.php?id=61554236597309" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                    <!-- <a class="btn btn-light btn-social mr-2" href="#" target="_blank"><i class="fab fa-linkedin-in"></i></a> -->
+                    <a class="btn btn-light btn-social" href="https://www.instagram.com/vgs_logistic?igsh=dm95dHRjaTg5cWpx" target="_blank"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-5">
+                <h4 class="font-weight-semi-bold text-primaryy mb-4">Quick Links</h4>
+                <div class="d-flex flex-column justify-content-start">
+                    <a href="{% url 'home' %}" class="nav-item nav-link">Home</a>
+                            <a href="{% url 'about' %}" class="nav-item nav-link">About Us</a>
+                            <a href="{% url 'service' %}" class="nav-item nav-link">Cleaning</a>
+                            <a href="{% url 'waste' %}" class="nav-item nav-link">Waste Enviromental Management</a>
+                            <a href="{% url 'transport' %}" class="nav-item nav-link">Transportation</a>
+                            <a href="{% url 'security' %}" class="nav-item nav-link">Security</a>
+                            <a href="{% url 'contact' %}" class="nav-item nav-link">Contact Us</a>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-5">
+                <h4 class="font-weight-semi-bold text-primaryy mb-4">Newsletter</h4>
+                <p>Stay Connected: Your Monthly Eco-Update</p>
+                <div class="w-100">
+<form action="{% url 'subscription' %}" method="post">
+    {% csrf_token %}
+    <div class="input-group">
+        <input type="text" name="email" class="form-control border-0" style="padding: 25px;" placeholder="Your Email">
+        <div class="input-group-append">
+            <button class="btn btn-primary px-4">Subscribe</button>
+        </div>
+    </div>
+</form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid bg-dark text-white border-top py-4 px-sm-3 px-md-5" style="border-color: #3E3E4E !important;">
+        <div class="row">
+            <div class="col-lg-6 text-center text-md-left mb-3 mb-md-0">
+                <p class="m-0 text-white">&copy; <a href="#">VGS Worldwide Logistics Ltd</a>. All Rights Reserved.
+                </p>
+            </div>
+            <!-- <div class="col-lg-6 text-center text-md-right">
+                <ul class="nav d-inline-flex">
+                    <li class="nav-item">
+                        <a class="nav-link text-white py-0" href="#">Privacy</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white py-0" href="#">Terms</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white py-0" href="#">FAQs</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white py-0" href="#">Help</a>
+                    </li>
+                </ul>
+            </div> -->
+        </div>
+    </div>
+    <!-- Footer End -->
+
+
+    <!-- Floating whatsapp -->
+
+
+    <div class="whatsapp-chat">
+        <a href="https://wa.me/+447424701575" target="_blank">
+            <img src="{% static 'img/whatsapp2.png' %}" alt="WhatsApp Chat">
+        </a>
+        <button class="whatsapp-chat-btn">Quick Chat with Us</button>
+    </div>
+    
+
+    <!-- Floating whatsapp -->
+
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-primary px-3 back-to-top"><i class="fa fa-angle-double-up"></i></a>
+
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <script src="{% static 'lib/easing/easing.min.js' %}"></script>
+    <script src="{% static 'lib/waypoints/waypoints.min.js' %}"></script>
+    <script src="{% static 'lib/counterup/counterup.min.js' %}"></script>
+    <script src="{% static 'lib/owlcarousel/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'lib/isotope/isotope.pkgd.min.js' %}"></script>
+    <script src="{% static 'lib/lightbox/js/lightbox.min.js' %}"></script>
+
+    <!-- Contact Javascript File -->
+    <script src="{% static 'mail/jqBootstrapValidation.min.js' %}"></script>
+    <script src="{% static 'mail/contact.js' %}"></script>
+
+    <!-- Template Javascript -->
+    <script src="{% static 'js/main.js' %}"></script>
+</body>
+
+</html>

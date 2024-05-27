@@ -1,0 +1,154 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<!-- Page Header Start -->
+    <div class="container-fluid bg-primaryy py-5 mb-5">
+        <div class="container py-5">
+            <div class="row align-items-center py-4">
+                <div class="col-md-6 text-center text-md-left">
+                    <h1 class="display-4 mb-4 mb-md-0 text-secondaryy text-uppercase">Waste Enviromental Management</h1>
+                </div>
+                <div class="col-md-6 text-center text-md-right">
+                    <div class="d-inline-flex align-items-center">
+                        <a class="btn btn-sm btn-outline-light" href="{% url 'home' %}">Home</a>
+                        <i class="fas fa-angle-double-right text-light mx-2"></i>
+                        <a class="btn btn-sm btn-outline-light disabled" href="{% url 'waste' %}">Waste Management</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Page Header End -->
+
+
+    <!-- Services Start -->
+    <div class="container-fluid py-5">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <h6 class="text-secondary font-weight-semi-bold text-uppercase mb-3">Our Services</h6>
+                    <h1 class="mb-4 section-title">Revolutionize Waste Management: Simplify, Optimize, Excel</h1>
+                    <h5>Hazardous Waste Removal</h5>
+                    <h5>Bin Removal</h5>
+                    <h5>Recycling and Composition Solutiuons</h5>
+                    
+                    
+                    <!-- <a href="" class="btn btn-primary mt-3 py-2 px-4">More Services</a> -->
+                </div>
+                <div class="col-lg-6 pt-5 pt-lg-0">
+                    <div class="owl-carousel service-carousel position-relative">
+                        <div class="d-flex flex-column align-items-center text-center bg-light rounded overflow-hidden pt-4">
+                            <div class="icon-box bg-light text-secondary shadow mt-2 mb-4">
+                                <i class="fa fa-2x fa-hotel"></i>
+                            </div>
+                            <h5 class="font-weight-bold mb-4 px-4">Harzadous Waste Removal</h5>
+                            <img src="{% static 'img/1.jpeg' %}" alt="">
+                        </div>
+                        <div class="d-flex flex-column align-items-center text-center bg-light rounded overflow-hidden pt-4">
+                            <div class="icon-box bg-light text-secondary shadow mt-2 mb-4">
+                                <i class="fa fa-2x fa-city"></i>
+                            </div>
+                            <h5 class="font-weight-bold mb-4 px-4">Bin Removal</h5>
+                            <img src="{% static 'img/3.jpeg' %}" alt="">
+                        </div>
+                        <div class="d-flex flex-column align-items-center text-center bg-light rounded overflow-hidden pt-4">
+                            <div class="icon-box bg-light text-secondary shadow mt-2 mb-4">
+                                <i class="fa fa-2x fa-city"></i>
+                            </div>
+                            <h5 class="font-weight-bold mb-4 px-4">Recycling & Composition Solutions</h5>
+                            <img src="{% static 'img/9.jpg' %}" alt="">
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Services End -->
+
+
+    <!-- Contact Info Start -->
+    <div class="container-fluid pb-5 contact-info">
+        <div class="row">
+            <div class="col-lg-4 p-0">
+                <div class="contact-info-item d-flex align-items-center justify-content-center bg-secondary text-white py-4 py-lg-0">
+                    <i class="fa fa-3x fa-map-marker-alt text-primaryy mr-4"></i>
+                    <div class="">
+                        <h5 class="mb-2">Our Office</h5>
+                        <p class="m-0">17, Rowden Road Oldham OL4 5NR Manchester</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 p-0">
+                <div class="contact-info-item d-flex align-items-center justify-content-center bg-primary text-white py-4 py-lg-0">
+                    <i class="fa fa-3x fa-envelope-open text-secondary mr-4"></i>
+                    <div class="">
+                        <h5 class="mb-2">Email Us</h5>
+                        <p class="m-0">vgsworldwidelimited@gmail.com <br> tonsytonny@yahoo.com</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 p-0">
+                <div class="contact-info-item d-flex align-items-center justify-content-center bg-secondary text-white py-4 py-lg-0">
+                    <i class="fa fa-3x fa-phone-alt text-primaryy mr-4"></i>
+                    <div class="">
+                        <h5 class="mb-2">Call Us</h5>
+                        <p class="m-0">+447448196900<br>+447424701575 </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Contact Info End -->
+
+
+    <!-- Testimonial Start -->
+    <div class="container-fluid py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-7 pt-lg-5 pb-5">
+                    <h6 class="text-secondary font-weight-semi-bold text-uppercase mb-3">Testimonial</h6>
+                    <h1 class="section-title mb-5">What Our Clients Say</h1>
+                    <div class="owl-carousel testimonial-carousel position-relative">
+                        <div class="d-flex flex-column">
+                            <div class="d-flex align-items-center mb-3">
+                                <img class="img-fluid" src="{% static 'img/testimonial-1.jpg' %}" alt="">
+                                <div class="ml-3">
+                                    <h5>Larry Walter</h5>
+                                    <i>Doctor</i>
+                                </div>
+                            </div>
+                            <p>Your services have been nothing short of exceptional. From the moment we engaged with your team, we've experienced a level of professionalism and dedication that's truly remarkable. Every interaction, from scheduling to the actual service delivery, has been seamless and efficient. Your attention to detail and commitment to customer satisfaction are evident in the results you consistently deliver. Thank you for going above and beyond to ensure our needs are not just met, but exceeded. We couldn't be more satisfied with the quality of your work.</p>
+                        </div>
+                        <div class="d-flex flex-column">
+                            <div class="d-flex align-items-center mb-3">
+                                <img class="img-fluid" src="{% static 'img/testimo2.jpg' %}" alt="">
+                                <div class="ml-3">
+                                    <h5>Enola Carl</h5>
+                                    <i>Business Analyst</i>
+                                </div>
+                            </div>
+                            <p>Our regular cleaning service has truly become an essential part of our lives. With your team's consistent attention to detail and reliability, our home feels like a sanctuary of cleanliness and comfort. It's a joy to come home to a space that's consistently refreshed and revitalized. Thank you for your professionalism and dedication to keeping our home sparkling clean week after week.</p>
+                        </div>
+                        <div class="d-flex flex-column">
+                            <div class="d-flex align-items-center mb-3">
+                                <img class="img-fluid" src="{% static 'img/testimo1.jpg' %}" alt="">
+                                <div class="ml-3">
+                                    <h5>Ruki Walsh</h5>
+                                    <i>Artist</i>
+                                </div>
+                            </div>
+                            <p>Your cleaning services are a breath of fresh air for my creative space. With every visit, you transform my studio and house into a pristine sanctuary where inspiration thrives. Your attention to detail and dedication ensure that my environment is always conducive to creativity. Thank you for helping me focus on my art without worrying about the mess.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-5" style="min-height: 400px;">
+                    <div class="position-relative h-100 rounded overflow-hidden">
+                        <img class="position-absolute w-100 h-100" src="{% static 'img/waste.jpeg' %}" style="object-fit: cover;">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Testimonial End -->
+    {% endblock %}
