@@ -1,11 +1,11 @@
 from django.shortcuts import render,redirect
 from .models import *
-from .forms import PersonalInfoForm, AddressForm
+from .forms import PersonalInfoForm, AddressForm, QuoteForm
 
 from django.contrib import messages
 # Create your views here.
 
-def index(request):
+def index1(request):
     try:
         if request.method == "POST":
             firstName = request.POST.get("firstName")
@@ -30,6 +30,43 @@ def index(request):
         print(e)
         messages.error(request,'subscription not successfull' )
     return render(request,'index.html')
+
+
+def index(request):
+    
+    if request.method == 'POST':
+        form = QuoteForm(request.POST)
+        if form.is_valid():
+            # Process the data
+            firstName = form.cleaned_data['firstName']
+            lastName = form.cleaned_data['lastName']
+            business = form.cleaned_data['business']
+            email = form.cleaned_data['email']
+            phone = form.cleaned_data['phone']
+            address1 = form.cleaned_data['address1']
+            address2 = form.cleaned_data['address2']
+            city = form.cleaned_data['city']
+            state = form.cleaned_data['state']
+            postalCode = form.cleaned_data['postalCode']
+            date = form.cleaned_data['date']
+            time = form.cleaned_data['time']
+
+            if firstName and lastName and business and email and phone and address1 and address2 and city and state and postalCode and date and time:
+                getQuote = GetQuote.objects.create(firstName=firstName,lastName=lastName,business=business,email=email,phone=phone,address1=address1,address2=address2,city=city,state=state,postalCode=postalCode,date=date,time=time)
+                messages.success(request,'you\'ve successfully requested a quote')
+            else:
+                messages.success(request,'an error occured requesting a quote')
+                form.add_error(None,'Invalid reCAPTCHA')
+            # Save the data to the database or process it as needed
+            
+            return redirect('home')  # Redirect to a success page or render a success message
+    else:
+
+        form = QuoteForm()
+            
+    
+    return render(request, 'index.html', {'form': form})
+
 
 
 def subscription(request):

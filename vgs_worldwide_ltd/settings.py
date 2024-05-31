@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'logistics',
+    'django_recaptcha'
 ]
 
 MIDDLEWARE = [
@@ -87,7 +88,7 @@ import dj_database_url
 
 
 DATABASES = {
-    'default': dj_database_url.parse('postgres://ecommerce_database_4801_user:kgMA73Vj07U0QecDkh7xXArrdTKp1o1I@dpg-coltfi21hbls7396kmq0-a.oregon-postgres.render.com/ecommerce_database_4801')
+    'default': dj_database_url.parse('postgres://logistics_database_user:lZmHOOSkTL0eayJGwMB8bTc5u0pcXpLs@dpg-cpcvrge74orc73f79rlg-a.ohio-postgres.render.com/logistics_database')
 }
 
 # Password validation
@@ -134,3 +135,9 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+RECAPTCHA_PUBLIC_KEY = '6Le4Ye0pAAAAAN_-bSfqy33aLs3EYKO6xK_XM3eq'
+RECAPTCHA_PRIVATE_KEY = '6Le4Ye0pAAAAAP764qTLFuXBrC_9d2DfJQNzI0a7'
+
+SILENCED_SYSTEM_CHECKS = ['django_recaptcha.recaptcha_test_key_error']
