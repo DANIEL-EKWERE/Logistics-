@@ -77,21 +77,21 @@ WSGI_APPLICATION = 'vgs_worldwide_ltd.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
+}
 
 
 
 import dj_database_url
 
 
-DATABASES = {
-    'default': dj_database_url.parse('postgres://logistics_database_user:lZmHOOSkTL0eayJGwMB8bTc5u0pcXpLs@dpg-cpcvrge74orc73f79rlg-a.ohio-postgres.render.com/logistics_database')
-}
+# DATABASES = {
+#     'default': dj_database_url.parse('postgres://logistics_database_user:lZmHOOSkTL0eayJGwMB8bTc5u0pcXpLs@dpg-cpcvrge74orc73f79rlg-a.ohio-postgres.render.com/logistics_database')
+# }
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
