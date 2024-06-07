@@ -41,7 +41,9 @@
 
  
 <link href="{% static 'css/style.css' %}" rel="stylesheet">
-
+<!-- Libraries Stylesheet -->
+<link href="{% static 'lib/owlcarousel/assets/owl.carousel.min.css' %}" rel="stylesheet">
+<link href="{% static 'lib/lightbox/css/lightbox.min.css' %}" rel="stylesheet">
    <!-- Carousel Start -->
    <!-- Carousel Start -->
    <div class="container-fluid p-0">
@@ -218,13 +220,26 @@
 
    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
-   <script src="{% static 'lib/easing/easing.min.js' %}"></script>
-   <script src="{% static 'lib/waypoints/waypoints.min.js' %}"></script>
-   <script src="{% static 'lib/counterup/counterup.min.js' %}"></script>
-   <script src="{% static 'lib/owlcarousel/owl.carousel.min.js' %}"></script>
-   <script src="{% static 'lib/isotope/isotope.pkgd.min.js' %}"></script>
-   <script src="{% static 'lib/lightbox/js/lightbox.min.js' %}"></script>
-   <script src="{% static 'js/main.js' %}"></script>
+
+  
+   <script>
+    $(document).ready(function() {
+    var $carousel = $('#header-carousel');
+
+    // Show the form overlay and pause the carousel
+    $('#getQuoteButton').click(function() {
+       // $('#formOverlay').removeClass('hidden');
+        $carousel.carousel('pause');
+    });
+
+    // Close the form overlay and resume the carousel
+    $('#closeButton').click(function() {
+        $('#formOverlay').addClass('hidden');
+        $carousel.carousel('cycle');
+    });
+});
+
+   </script>
 {% endblock %}
 
 
@@ -245,7 +260,7 @@
                     <i class="fa fa-3x fa-envelope-open text-secondary mr-4"></i>
                     <div class="">
                         <h5 class="mb-2">Email Us</h5>
-                        <p class="m-0">vgsworldwidelimited@gmail.com <br> tonsytonny@yahoo.com</p>
+                        <p class="m-0">info@vgsworldwidelogistics.co.uk <br> Account@vgsworldwidelogistics.co.uk</p>
                     </div>
                 </div>
             </div>

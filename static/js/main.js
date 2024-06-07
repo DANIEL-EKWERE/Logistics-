@@ -18,7 +18,27 @@
   //     $(window).resize(toggleNavbarMethod);
   // });
   
-  
+
+// // pause carousle
+// $(document).ready(function() {
+//   var $carousel = $('#header-carousel');
+
+//   // Show the form overlay and pause the carousel
+//   $('#getQuoteButton').click(function() {
+//       $('#formOverlay').removeClass('hidden');
+//       $carousel.carousel('pause');
+//   });
+
+//   // Close the form overlay and resume the carousel
+//   $('#closeButton').click(function() {
+//       $('#formOverlay').addClass('hidden');
+//       $carousel.carousel('cycle');
+//   });
+// });
+
+
+
+
   // Back to top button
   $(window).scroll(function () {
       if ($(this).scrollTop() > 100) {
@@ -185,9 +205,11 @@ document.addEventListener('DOMContentLoaded', function() {
 var getQuoteButton = document.getElementById('getQuoteButton');
 if (getQuoteButton) {
   getQuoteButton.addEventListener('click', function() {
+    getQuoteButton.$carousel.carousel('pause');
     var formOverlay = document.getElementById('formOverlay');
     if (formOverlay) {
-      formOverlay.classList.remove('hidden'); // Show form overlay
+      formOverlay.classList.remove('hidden').$carousel.carousel('pause'); // Show form overlay
+    //  $(carousel).carousel('pause'); // Pause carousel
     }
   });
 }
