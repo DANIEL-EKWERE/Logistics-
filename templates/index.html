@@ -72,7 +72,7 @@
                                     {% csrf_token %}
                                     {{ form.non_field_errors }}
                                     
-                                    <div class="form {% if form.errors %}active{% else %}active{% endif %}" id="personalInfoForm">
+                                    <div class="form active" id="personalInfoForm">
                                         <h2>Welcome!</h2>
                                         <h5 class="oba">Our Prices are Very Affordable</h5>
                                         <p class="oba">Fill the form below:</p>
@@ -215,8 +215,15 @@
 </div>
 <!-- Carousel End -->
    <!-- Carousel End -->
+
    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+   <script src="{% static 'lib/easing/easing.min.js' %}"></script>
+   <script src="{% static 'lib/waypoints/waypoints.min.js' %}"></script>
+   <script src="{% static 'lib/counterup/counterup.min.js' %}"></script>
+   <script src="{% static 'lib/owlcarousel/owl.carousel.min.js' %}"></script>
+   <script src="{% static 'lib/isotope/isotope.pkgd.min.js' %}"></script>
+   <script src="{% static 'lib/lightbox/js/lightbox.min.js' %}"></script>
    <script src="{% static 'js/main.js' %}"></script>
 {% endblock %}
 
