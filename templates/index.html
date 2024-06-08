@@ -225,7 +225,7 @@ document.addEventListener('DOMContentLoaded', function() {
       getQuoteButton.addEventListener('click', function() {
           if (formOverlay) {
               formOverlay.classList.remove('hidden'); // Show form overlay
-              headerCarousel.carousel('pause'); // Pause the carousel
+              headerCarousel.carousel({pause:'none'}); // Pause the carousel
 $('.carousel').carousel('pause');
           }
       });
