@@ -226,6 +226,7 @@ document.addEventListener('DOMContentLoaded', function() {
           if (formOverlay) {
               formOverlay.classList.remove('hidden'); // Show form overlay
               headerCarousel.carousel('pause'); // Pause the carousel
+$('.carousel').carousel('pause');
           }
       });
   }
@@ -245,6 +246,7 @@ document.addEventListener('DOMContentLoaded', function() {
           if (formOverlay) {
             //   formOverlay.classList.add('hidden'); // Hide form overlay
               headerCarousel.carousel('cycle'); // Resume the carousel
+$('.carousel').carousel('cycle');
           }
       });
   }
