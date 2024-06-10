@@ -151,4 +151,192 @@
         </div>
     </div>
     <!-- Testimonial End -->
+    <script>
+    
+        document.addEventListener('DOMContentLoaded', function() {
+          // Add event listener to "Get A Quote" button
+          var getQuoteButton = document.getElementById('getQuoteButton');
+          var formOverlay = document.getElementById('formOverlay');
+          var closeButton = document.getElementById('closeButton');
+          var submitButton1 = document.getElementById('submitButton1');
+          var headerCarousel = $('#header-carousel');
+        
+          if (getQuoteButton) {
+              getQuoteButton.addEventListener('click', function() {
+                  if (formOverlay) {
+                      formOverlay.classList.remove('hidden'); // Show form overlay
+                      headerCarousel.carousel('pause'); // Pause the carousel
+                  }
+              });
+          }
+        
+          if (closeButton) {
+              closeButton.addEventListener('click', function() {
+                  if (formOverlay) {
+                      formOverlay.classList.add('hidden'); // Hide form overlay
+                      headerCarousel.carousel('cycle'); // Resume the carousel
+                  }
+              });
+          }
+        
+        
+          if (submitButton1) {
+            submitButton1.addEventListener('click', function() {
+                  if (formOverlay) {
+                    //   formOverlay.classList.add('hidden'); // Hide form overlay
+                      headerCarousel.carousel('cycle'); // Resume the carousel
+                  }
+              });
+          }
+        
+          // Prevent carousel from cycling when the form overlay is visible
+          formOverlay.addEventListener('show', function() {
+              headerCarousel.carousel('pause');
+          });
+        
+          formOverlay.addEventListener('hide', function() {
+              headerCarousel.carousel('cycle');
+          });
+        });
+        
+        
+        
+        </script>
+        <script>
+        
+            function closeMessage(button) {
+                var messageDiv = button.parentElement;
+                messageDiv.style.display = 'none';
+            }
+            document.addEventListener('DOMContentLoaded', function() {
+      // Add event listener to "Get A Quote" button
+      var getQuoteButton = document.getElementById('getQuoteButton');
+      if (getQuoteButton) {
+        getQuoteButton.addEventListener('click', function() {
+          var formOverlay = document.getElementById('formOverlay');
+          if (formOverlay) {
+            formOverlay.classList.remove('hidden'); // Show form overlay
+          }
+        });
+      }
+    
+      // Add event listener to "Close" button
+      var closeButton = document.getElementById('closeButton');
+      if (closeButton) {
+        closeButton.addEventListener('click', function() {
+          var formOverlay = document.getElementById('formOverlay');
+          if (formOverlay) {
+            formOverlay.classList.add('hidden'); // Hide form overlay
+          }
+        });
+      }
+    
+      // Add event listener to "Next" button
+      var nextButton = document.getElementById('nextButton');
+      if (nextButton) {
+        nextButton.addEventListener('click', function(e) {
+          e.preventDefault();
+    
+          const inputs = document.querySelectorAll('#personalInfoForm input[required]');
+          let formValid = true;
+    
+          inputs.forEach(input => {
+            if (input.value.trim() === '') {
+              formValid = false;
+              input.classList.add('error'); // Apply error style to empty required inputs
+            } else {
+              input.classList.remove('error');
+            }
+          });
+    
+          if (formValid) {
+            var personalInfoForm = document.getElementById('personalInfoForm');
+            var addressForm = document.getElementById('addressForm');
+            if (personalInfoForm && addressForm) {
+              personalInfoForm.classList.remove('active'); // Hide current form section
+              addressForm.classList.add('active'); // Show next form section
+            }
+          }
+        });
+      }
+    
+      // Add event listener to "Submit" button
+      var submitButton = document.getElementById('submitButton');
+      if (submitButton) {
+        submitButton.addEventListener('click', function(e) {
+          e.preventDefault();
+    
+          const inputs = document.querySelectorAll('#addressForm input[required], #addressForm input[type="date"], #addressForm input[type="time"]');
+          let formValid = true;
+    
+          inputs.forEach(input => {
+            if (input.value.trim() === '') {
+              formValid = false;
+              input.classList.add('error'); // Apply error style to empty required inputs
+            } else {
+              input.classList.remove('error');
+            }
+          });
+    
+          if (formValid) {
+            var formOverlay = document.getElementById('formOverlay');
+            var thankYouMessage = document.getElementById('thankYouMessage');
+            if (formOverlay && thankYouMessage) {
+              formOverlay.classList.add('hidden'); // Hide form overlay
+              thankYouMessage.classList.remove('initially-hidden'); // Show thank you message
+            }
+          }
+        });
+      }
+    });
+    
+    
+    
+      document.getElementById("openQuoteModalMobile").addEventListener("click", function() {
+        document.getElementById("quoteModal").style.display = "block";
+      });
+      
+      document.getElementById("openQuoteModalDesktop").addEventListener("click", function() {
+        document.getElementById("quoteModal").style.display = "block";
+      });
+      
+      document.getElementsByClassName("close")[0].addEventListener("click", function() {
+        document.getElementById("quoteModal").style.display = "none";
+      });
+      
+      // Close the modal when clicking outside of it
+      window.addEventListener("click", function(event) {
+        if (event.target == document.getElementById("quoteModal")) {
+          document.getElementById("quoteModal").style.display = "none";
+        }
+      });
+    
+      document.querySelector("#getQuoteButton").onclick = function (e) {
+        $carousel.carousel('pause');
+        alert("pause carousel");
+        
+      }
+    
+      function pause(){
+       // alert("pause carousel");
+       // $carousel.carousel('pause');
+       // formOverlay.classList.add('hidden');
+      }
+    
+          // Automatically advance the carousel to the next item every 5 seconds
+        //   setInterval(function() {
+        //         $('#header-carousel').carousel('next');
+        //     }, 5000); // 5000 milliseconds = 5 seconds
+    
+        //       // Testimonials carousel
+        //       $(".carousel-item").owlCarousel({
+        //       autoplay: true,
+        //       smartSpeed: 1000,
+        //       items: 1,
+        //       loop: true,
+        //         });
+      
+        </script>
+       <!-- Template Javascript -->
+       <script src="{% static 'js/main.js' %}"></script>
     {% endblock %}

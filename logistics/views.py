@@ -150,54 +150,222 @@ def index1(request):
 
 def about(request):
     if request.method == 'POST':
-        email = request.POST.get('email')
-        subscribe = Subscribe(email=email)
-        print(f'email ============ {email}')
-        subscribe.save()
-        return redirect('about')
-    return render(request,'about.html')
+        form = QuoteForm(request.POST)
+        if form.is_valid():
+            # Process the data
+            firstName = form.cleaned_data['firstName']
+            lastName = form.cleaned_data['lastName']
+            business = form.cleaned_data['business']
+            email = form.cleaned_data['email']
+            phone = form.cleaned_data['phone']
+            address1 = form.cleaned_data['address1']
+            address2 = form.cleaned_data['address2']
+            city = form.cleaned_data['city']
+            state = form.cleaned_data['state']
+            postalCode = form.cleaned_data['postalCode']
+            date = form.cleaned_data['date']
+            time = form.cleaned_data['time']
+
+            if firstName and lastName and business and email and phone and address1 and address2 and city and state and postalCode and date and time:
+                getQuote = GetQuote.objects.create(firstName=firstName,lastName=lastName,business=business,email=email,phone=phone,address1=address1,address2=address2,city=city,state=state,postalCode=postalCode,date=date,time=time)
+                messages.success(request,'you\'ve successfully requested a quote')
+                print('success=========================')
+
+            else:
+                messages.success(request,'an error occured requesting a quote')
+                form.add_error(None,'Invalid reCAPTCHA')
+                print('errorr===================')
+            # Save the data to the database or process it as needed
+            
+            return redirect('about')  # Redirect to a success page or render a success message
+    else:
+
+        form = QuoteForm()
+            
+    
+    return render(request, 'about.html', {'form': form})
 
 def contact(request):
     if request.method == 'POST':
-        email = request.POST.get('email')
-        subscribe = Subscribe(email=email)
-        print(f'email ============ {email}')
-        subscribe.save()
-        return redirect('contact')
-    return render(request,'contact.html')
+        form = QuoteForm(request.POST)
+        if form.is_valid():
+            # Process the data
+            firstName = form.cleaned_data['firstName']
+            lastName = form.cleaned_data['lastName']
+            business = form.cleaned_data['business']
+            email = form.cleaned_data['email']
+            phone = form.cleaned_data['phone']
+            address1 = form.cleaned_data['address1']
+            address2 = form.cleaned_data['address2']
+            city = form.cleaned_data['city']
+            state = form.cleaned_data['state']
+            postalCode = form.cleaned_data['postalCode']
+            date = form.cleaned_data['date']
+            time = form.cleaned_data['time']
+
+            if firstName and lastName and business and email and phone and address1 and address2 and city and state and postalCode and date and time:
+                getQuote = GetQuote.objects.create(firstName=firstName,lastName=lastName,business=business,email=email,phone=phone,address1=address1,address2=address2,city=city,state=state,postalCode=postalCode,date=date,time=time)
+                messages.success(request,'you\'ve successfully requested a quote')
+                print('success=========================')
+
+            else:
+                messages.success(request,'an error occured requesting a quote')
+                form.add_error(None,'Invalid reCAPTCHA')
+                print('errorr===================')
+            # Save the data to the database or process it as needed
+            
+            return redirect('contact')  # Redirect to a success page or render a success message
+    else:
+
+        form = QuoteForm()
+            
+    
+    return render(request, 'contact.html', {'form': form})
 
 def security(request):
     if request.method == 'POST':
-        email = request.POST.get('email')
-        subscribe = Subscribe(email=email)
-        print(f'email ============ {email}')
-        subscribe.save()
-        return redirect('security')
-    return render(request,'security.html')
+        form = QuoteForm(request.POST)
+        if form.is_valid():
+            # Process the data
+            firstName = form.cleaned_data['firstName']
+            lastName = form.cleaned_data['lastName']
+            business = form.cleaned_data['business']
+            email = form.cleaned_data['email']
+            phone = form.cleaned_data['phone']
+            address1 = form.cleaned_data['address1']
+            address2 = form.cleaned_data['address2']
+            city = form.cleaned_data['city']
+            state = form.cleaned_data['state']
+            postalCode = form.cleaned_data['postalCode']
+            date = form.cleaned_data['date']
+            time = form.cleaned_data['time']
+
+            if firstName and lastName and business and email and phone and address1 and address2 and city and state and postalCode and date and time:
+                getQuote = GetQuote.objects.create(firstName=firstName,lastName=lastName,business=business,email=email,phone=phone,address1=address1,address2=address2,city=city,state=state,postalCode=postalCode,date=date,time=time)
+                messages.success(request,'you\'ve successfully requested a quote')
+                print('success=========================')
+
+            else:
+                messages.success(request,'an error occured requesting a quote')
+                form.add_error(None,'Invalid reCAPTCHA')
+                print('errorr===================')
+            # Save the data to the database or process it as needed
+            
+            return redirect('security')  # Redirect to a success page or render a success message
+    else:
+
+        form = QuoteForm()
+            
+    
+    return render(request, 'security.html', {'form': form})
 
 def service(request):
     if request.method == 'POST':
-        email = request.POST.get('email')
-        subscribe = Subscribe(email=email)
-        print(f'email ============ {email}')
-        subscribe.save()
-        return redirect('service')
-    return render(request,'service.html')
+        form = QuoteForm(request.POST)
+        if form.is_valid():
+            # Process the data
+            firstName = form.cleaned_data['firstName']
+            lastName = form.cleaned_data['lastName']
+            business = form.cleaned_data['business']
+            email = form.cleaned_data['email']
+            phone = form.cleaned_data['phone']
+            address1 = form.cleaned_data['address1']
+            address2 = form.cleaned_data['address2']
+            city = form.cleaned_data['city']
+            state = form.cleaned_data['state']
+            postalCode = form.cleaned_data['postalCode']
+            date = form.cleaned_data['date']
+            time = form.cleaned_data['time']
+
+            if firstName and lastName and business and email and phone and address1 and address2 and city and state and postalCode and date and time:
+                getQuote = GetQuote.objects.create(firstName=firstName,lastName=lastName,business=business,email=email,phone=phone,address1=address1,address2=address2,city=city,state=state,postalCode=postalCode,date=date,time=time)
+                messages.success(request,'you\'ve successfully requested a quote')
+                print('success=========================')
+
+            else:
+                messages.success(request,'an error occured requesting a quote')
+                form.add_error(None,'Invalid reCAPTCHA')
+                print('errorr===================')
+            # Save the data to the database or process it as needed
+            
+            return redirect('service')  # Redirect to a success page or render a success message
+    else:
+
+        form = QuoteForm()
+            
+    
+    return render(request, 'service.html', {'form': form})
 
 def transport(request):
     if request.method == 'POST':
-        email = request.POST.get('email')
-        subscribe = Subscribe(email=email)
-        print(f'email ============ {email}')
-        subscribe.save()
-        return redirect('transport')
-    return render(request,'transport.html')
+        form = QuoteForm(request.POST)
+        if form.is_valid():
+            # Process the data
+            firstName = form.cleaned_data['firstName']
+            lastName = form.cleaned_data['lastName']
+            business = form.cleaned_data['business']
+            email = form.cleaned_data['email']
+            phone = form.cleaned_data['phone']
+            address1 = form.cleaned_data['address1']
+            address2 = form.cleaned_data['address2']
+            city = form.cleaned_data['city']
+            state = form.cleaned_data['state']
+            postalCode = form.cleaned_data['postalCode']
+            date = form.cleaned_data['date']
+            time = form.cleaned_data['time']
+
+            if firstName and lastName and business and email and phone and address1 and address2 and city and state and postalCode and date and time:
+                getQuote = GetQuote.objects.create(firstName=firstName,lastName=lastName,business=business,email=email,phone=phone,address1=address1,address2=address2,city=city,state=state,postalCode=postalCode,date=date,time=time)
+                messages.success(request,'you\'ve successfully requested a quote')
+                print('success=========================')
+
+            else:
+                messages.success(request,'an error occured requesting a quote')
+                form.add_error(None,'Invalid reCAPTCHA')
+                print('errorr===================')
+            # Save the data to the database or process it as needed
+            
+            return redirect('transport')  # Redirect to a success page or render a success message
+    else:
+
+        form = QuoteForm()
+            
+    
+    return render(request, 'transport.html', {'form': form})
 
 def waste(request):
     if request.method == 'POST':
-        email = request.POST.get('email')
-        subscribe = Subscribe(email=email)
-        print(f'email ============ {email}')
-        subscribe.save()
-        return redirect('waste')
-    return render(request,'waste.html')
+        form = QuoteForm(request.POST)
+        if form.is_valid():
+            # Process the data
+            firstName = form.cleaned_data['firstName']
+            lastName = form.cleaned_data['lastName']
+            business = form.cleaned_data['business']
+            email = form.cleaned_data['email']
+            phone = form.cleaned_data['phone']
+            address1 = form.cleaned_data['address1']
+            address2 = form.cleaned_data['address2']
+            city = form.cleaned_data['city']
+            state = form.cleaned_data['state']
+            postalCode = form.cleaned_data['postalCode']
+            date = form.cleaned_data['date']
+            time = form.cleaned_data['time']
+
+            if firstName and lastName and business and email and phone and address1 and address2 and city and state and postalCode and date and time:
+                getQuote = GetQuote.objects.create(firstName=firstName,lastName=lastName,business=business,email=email,phone=phone,address1=address1,address2=address2,city=city,state=state,postalCode=postalCode,date=date,time=time)
+                messages.success(request,'you\'ve successfully requested a quote')
+                print('success=========================')
+
+            else:
+                messages.success(request,'an error occured requesting a quote')
+                form.add_error(None,'Invalid reCAPTCHA')
+                print('errorr===================')
+            # Save the data to the database or process it as needed
+            
+            return redirect('waste')  # Redirect to a success page or render a success message
+    else:
+
+        form = QuoteForm()
+            
+    
+    return render(request, 'waste.html', {'form': form})

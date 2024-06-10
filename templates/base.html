@@ -1,4 +1,5 @@
 {% load static %}
+{% block head %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -120,34 +121,82 @@
 
 
 
+                        <button id="getQuoteButton" class="btn btn-primary">Get A Quote</button>
+                            <div id="formOverlay" class="hidden">
+                                <div id="formContainer" class="form-container">
+                                <form id="quoteForm" action="{% url 'home' %}" method="post">
+                                    {% csrf_token %}
+                                    {{ form.non_field_errors }}
+                                    
+                                    <div class="form active" id="personalInfoForm">
+                                        <h2>Welcome!</h2>
+                                        <h5 class="oba">Our Prices are Very Affordable</h5>
+                                        <p class="oba">Fill the form below:</p>
 
-                        <!-- <a href="#" class="btn btn-primaryy d-lg-none" id="openQuoteModalMobile">Get A Quote</a>
-                        <a href="#" class="btn btn-primary mr-3 d-none d-lg-block" id="openQuoteModalDesktop">Get A Quote</a> -->
+                                        {{ form.firstName.errors }}
+                                        {{ form.firstName }}
+                                        
+                                        {{ form.lastName.errors }}
+                                        {{ form.lastName }}
+                                        
+                                        {{ form.business.errors }}
+                                        {{ form.business }}
+                                        
+                                        {{ form.email.errors }}
+                                        {{ form.email }}
+                                        
+                                        {{ form.phone.errors }}
+                                        {{ form.phone }}
+                                        
+                                        <button id="nextButton">Next</button>
+                                    </div>
+                                    
+                                    <div class="form hidden" id="addressForm">
+                                        <h5 class="oba">You are almost there!</h5>
+                                        
+                                        {{ form.address1.errors }}
+                                        {{ form.address1 }}
+                                        
+                                        {{ form.address2.errors }}
+                                        {{ form.address2 }}
+                                        
+                                        {{ form.city.errors }}
+                                        {{ form.city }}
+                                        
+                                        {{ form.state.errors }}
+                                        {{ form.state }}
+                                        
+                                        {{ form.postalCode.errors }}
+                                        {{ form.postalCode }}
+                                        
+                                        <p class="oba">When do you plan to have us?</p>
+                                        {{ form.date.errors }}
+                                        {{ form.date }}
+                                        
+                                        {{ form.time.errors }}
+                                        {{ form.time }}
 
-                        <div class="quoteModal" id="quoteModal">
-                            <div class="quoteModal-content">
-                                <span class="close">&times;</span>
-                                <form id="quoteForm">
-                                    <label for="name">Name:</label>
-                                    <input type="text" id="name" name="name" required><br><br>
-
-                                    <label for="email">Email:</label>
-                                    <input type="email" id="email" name="email" required><br><br>
-
-                                    <label for="message">Message:</label><br>
-                                    <textarea id="message" name="message" rows="4" required></textarea><br><br>
-
-                                    <input type="submit" value="Submit">
+                                        {{ form.captcha.errors }}
+                                        {{ form.captcha }}
+                                        
+                                        <button type="submit" id="submitButton1">Submit</button>
+                                    </div>
+                                    
                                 </form>
+                                <button id="closeButton">Close</button>
+                                
                             </div>
-                        </div>
-                    </div>
+                                <div id="thankYouMessage" class="initially-hidden">Thank you! We will get back to you soon.</div>
+                            </div>
+
+                </div>
+                        
                 </nav>
             </div>
         </div>
     </div>
     <!-- Header End -->
-
+{% endblock %}
 {% block content %}
 
 {% endblock %}
@@ -265,6 +314,37 @@
 
     <!-- Template Javascript -->
     <script src="{% static 'js/main.js' %}"></script>
+
+    <script>
+        // Add event listener to "Next" button
+  var nextButton = document.getElementById('nextButton');
+  if (nextButton) {
+    nextButton.addEventListener('click', function(e) {
+      e.preventDefault();
+
+      const inputs = document.querySelectorAll('#personalInfoForm input[required]');
+      let formValid = true;
+
+      inputs.forEach(input => {
+        if (input.value.trim() === '') {
+          formValid = false;
+          input.classList.add('error'); // Apply error style to empty required inputs
+        } else {
+          input.classList.remove('error');
+        }
+      });
+
+      if (formValid) {
+        var personalInfoForm = document.getElementById('personalInfoForm');
+        var addressForm = document.getElementById('addressForm');
+        if (personalInfoForm && addressForm) {
+          personalInfoForm.classList.remove('active'); // Hide current form section
+          addressForm.classList.add('active'); // Show next form section
+        }
+      }
+    });
+  }
+    </script>
 </body>
 
 </html>

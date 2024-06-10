@@ -60,74 +60,8 @@
                         <div class="p-5" style="width: 100%; max-width: 900px;">
                             <h5 class="text-primary text-uppercase mb-md-3">Cleaning Services</h5>
                             <h1 class="display-3 text-white mb-md-4">Best Quality Solution In Cleaning</h1>
-                        
-                            <button id="getQuoteButton" class="btn btn-primary" onclick="pause()">Get A Quote</button>
-                            <div id="formOverlay" class="hidden">
-                                <div id="formContainer" class="form-container">
-                                <form id="quoteForm" action="{% url 'home' %}" method="post">
-                                    {% csrf_token %}
-                                    {{ form.non_field_errors }}
-                                    
-                                    <div class="form active" id="personalInfoForm">
-                                        <h2>Welcome!</h2>
-                                        <h5 class="oba">Our Prices are Very Affordable</h5>
-                                        <p class="oba">Fill the form below:</p>
-
-                                        {{ form.firstName.errors }}
-                                        {{ form.firstName }}
-                                        
-                                        {{ form.lastName.errors }}
-                                        {{ form.lastName }}
-                                        
-                                        {{ form.business.errors }}
-                                        {{ form.business }}
-                                        
-                                        {{ form.email.errors }}
-                                        {{ form.email }}
-                                        
-                                        {{ form.phone.errors }}
-                                        {{ form.phone }}
-                                        
-                                        <button id="nextButton">Next</button>
-                                    </div>
-                                    
-                                    <div class="form hidden" id="addressForm">
-                                        <h5 class="oba">You are almost there!</h5>
-                                        
-                                        {{ form.address1.errors }}
-                                        {{ form.address1 }}
-                                        
-                                        {{ form.address2.errors }}
-                                        {{ form.address2 }}
-                                        
-                                        {{ form.city.errors }}
-                                        {{ form.city }}
-                                        
-                                        {{ form.state.errors }}
-                                        {{ form.state }}
-                                        
-                                        {{ form.postalCode.errors }}
-                                        {{ form.postalCode }}
-                                        
-                                        <p class="oba">When do you plan to have us?</p>
-                                        {{ form.date.errors }}
-                                        {{ form.date }}
-                                        
-                                        {{ form.time.errors }}
-                                        {{ form.time }}
-
-                                        {{ form.captcha.errors }}
-                                        {{ form.captcha }}
-                                        
-                                        <button type="submit" id="submitButton1">Submit</button>
-                                    </div>
-                                    
-                                </form>
-                                <button id="closeButton">Close</button>
-                                
-                            </div>
-                                <div id="thankYouMessage" class="initially-hidden">Thank you! We will get back to you soon.</div>
-                            </div>
+                            <a href="{% url 'service' %}" class="btn btn-primary mr-5">Cleaning Services</a>
+                            
                         </div>
                 </div>
             </div>
@@ -142,16 +76,7 @@
                         <h5 class="text-primary text-uppercase mb-md-3">Waste Enviromental Management</h5>
                         <h1 class="display-3 text-white mb-md-4">Highly Professional Services</h1>
                         
-                        <button id="getQuoteButton1" class="btn btn-primary">Waste Enviromental Services</button>
-                        <div id="quoteList1" class="quote-list">
-                            <div class="quote-background">
-                                <h5 class="quote-text">Bin Removal</h5>
-                              <h5 class="quote-text">Hazardous Waste Removal</h5>
-                              <h5 class="quote-text">Recycling and Composition Solutions</h5>
-                              
-                              <!-- Add additional text here -->
-                            </div>
-                          </div>
+                        <a href="{% url 'waste' %}" class="btn btn-primary mr-5">Waste Enviromental Services</a> 
                     </div>
                 </div>
             </div>
@@ -163,17 +88,7 @@
                     <div class="p-5" style="width: 100%; max-width: 900px;">
                         <h5 class="text-primary text-uppercase mb-md-3">Transportation</h5>
                         <h1 class="display-3 text-white mb-md-4">Experienced & Expert in Transporting</h1>
-
-                        <button id="getQuoteButton2" class="btn btn-primary btn-get-quote">Transportation Services</button>
-                        <div id="quoteList2" class="quote-list">
-                            <div class="quote-background">
-                              <h5 class="quote-text">End of Tenancy Clearance</h5>
-                              <h5 class="quote-text">Van and Man</h5>
-                              <h5 class="quote-text">Shipping Luggage from the UK to Africa </h5>
-                              <h5 class="quote-text">Cab to Airport</h5>
-                              <!-- Add additional text here -->
-                            </div>
-                          </div>
+                        <a href="{% url 'transport' %}" class="btn btn-primary mr-5">Transportation Services</a>
                     </div>
                 </div>
             </div>
@@ -185,18 +100,7 @@
                         <h5 class="text-primary text-uppercase mb-md-3">Security</h5>
                         <h1 class="display-3 text-white mb-md-4">Discover Our Proven Security Services</h1>
 
-                        <button id="getQuoteButton3" class="btn btn-primary btn-get-quote">Security Services</button>
-                        <div id="quoteList3" class="quote-list">
-                            <div class="quote-background">
-                              <h5 class="quote-text">Body Guard</h5>
-                              <h5 class="quote-text">Festival Security</h5>
-                              <h5 class="quote-text">Site Security</h5>
-                              <h5 class="quote-text">Event Security</h5>
-                              <h5 class="quote-text">Door Supervision</h5>
-                              <h5 class="quote-text">Corporate Security</h5>
-                              <!-- Add additional text here -->
-                            </div>
-                          </div>
+                        <a href="{% url 'security' %}" class="btn btn-primary mr-5">Security Services</a>
                     </div>
                 </div>
             </div>
@@ -225,8 +129,7 @@ document.addEventListener('DOMContentLoaded', function() {
       getQuoteButton.addEventListener('click', function() {
           if (formOverlay) {
               formOverlay.classList.remove('hidden'); // Show form overlay
-              headerCarousel.carousel({pause:'none'}); // Pause the carousel
-$('.carousel').carousel('pause');
+              headerCarousel.carousel('pause'); // Pause the carousel
           }
       });
   }
@@ -246,7 +149,6 @@ $('.carousel').carousel('pause');
           if (formOverlay) {
             //   formOverlay.classList.add('hidden'); // Hide form overlay
               headerCarousel.carousel('cycle'); // Resume the carousel
-$('.carousel').carousel('cycle');
           }
       });
   }
@@ -864,7 +766,7 @@ $('.carousel').carousel('cycle');
 
   function pause(){
    // alert("pause carousel");
-    $carousel.carousel('pause');
+   // $carousel.carousel('pause');
    // formOverlay.classList.add('hidden');
   }
 
