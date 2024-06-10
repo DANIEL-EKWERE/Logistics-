@@ -10035,10 +10035,10 @@ h6,
   background-size: cover;
 }
 
-.bg-testimonial {
+/* .bg-testimonial {
   background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(../img/carousel-3.jpg), no-repeat center center;
   background-size: cover;
-}
+} */
 
 .owl-carousel .owl-nav {
   position: absolute;
