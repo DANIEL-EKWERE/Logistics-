@@ -9,4 +9,5 @@ urlpatterns =[
     path('transport/',transport, name='transport'),
     path('service/',service, name='service'),
     path('subscription/',subscription, name='subscription'),
+    path('contactus/',contactUs,name='contactUs'),
 ]

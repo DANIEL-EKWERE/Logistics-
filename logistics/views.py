@@ -86,6 +86,23 @@ def subscription(request):
     return render(request,'index.html')
 
 
+def contactUs(request):
+    if request.method == 'POST':
+        name = request.POST.get('name')
+        email = request.POST.get('email')
+        subject = request.POST.get('subject')
+        message = request.POST.get('message')
+        contact_us = ContactUs(name=name,email=email,subject=subject,message=message)
+        #print(f'email ============ {email}')
+        if not all([name,email,subject,message]):
+            messages.error(request,'form submission not successful' )
+        else:
+            messages.success(request,'your message has been sent successfully!!!')
+            contact_us.save()
+        return redirect(request.path)
+    return render(request,'contact.html')
+
+
 def index1(request):
     if request.method == 'POST':
         first_name = request.POST.get('firstName')

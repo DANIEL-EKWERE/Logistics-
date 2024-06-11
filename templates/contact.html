@@ -36,28 +36,41 @@
             <div class="row">
                 <div class="col-lg-7 mb-5 mb-lg-0">
                     <div class="contact-form">
-                        <div id="success"></div>
-                        <form name="sentMessage" id="contactForm" novalidate="novalidate">
+                        <div id="success">
+                          {% if messages %}
+        <div class="messages-container">
+            {% for message in messages %}
+                <div class="alert alert-{{ message.tags }}"> <div class="alert alert-{{ message.tags }}{% if 'error' in message.tags %} alert-danger{% endif %}">
+                    {{ message }}
+                    <button class="close-btn" onclick="closeMessage(this)">&times;</button>
+                </div>
+              </div>
+            {% endfor %}
+        </div>
+{% endif %}
+                        </div>
+                        <form name="sentMessage" action="{% url 'contactUs' %}" method="post" id="contactForm" novalidate="novalidate">
+                          {% csrf_token %}
                             <div class="form-row">
                                 <div class="col-sm-6 control-group">
-                                    <input type="text" class="form-control p-4" id="name" placeholder="Your Name" required="required" data-validation-required-message="Please enter your name" />
+                                    <input type="text" class="form-control p-4" id="name" name="name" placeholder="Your Name" required="required" data-validation-required-message="Please enter your name" />
                                     <p class="help-block text-danger"></p>
                                 </div>
                                 <div class="col-sm-6 control-group">
-                                    <input type="email" class="form-control p-4" id="email" placeholder="Your Email" required="required" data-validation-required-message="Please enter your email" />
+                                    <input type="email" class="form-control p-4" id="email" name="email" placeholder="Your Email" required="required" data-validation-required-message="Please enter your email" />
                                     <p class="help-block text-danger"></p>
                                 </div>
                             </div>
                             <div class="control-group">
-                                <input type="text" class="form-control p-4" id="subject" placeholder="Subject" required="required" data-validation-required-message="Please enter a subject" />
+                                <input type="text" class="form-control p-4" id="subject" name="subject" placeholder="Subject" required="required" data-validation-required-message="Please enter a subject" />
                                 <p class="help-block text-danger"></p>
                             </div>
                             <div class="control-group">
-                                <textarea class="form-control p-4" rows="6" id="message" placeholder="Message" required="required" data-validation-required-message="Please enter your message"></textarea>
+                                <textarea class="form-control p-4" rows="6" id="message" name="message" placeholder="Message" required="required" data-validation-required-message="Please enter your message"></textarea>
                                 <p class="help-block text-danger"></p>
                             </div>
                             <div>
-                                <button class="btn btn-primary btn-block py-3 px-5" type="submit" id="sendMessageButton">Send Message</button>
+                                <button class="btn btn-primary btn-block py-3 px-5" type="submit" id="sendMessageButton1">Send Message</button>
                             </div>
                         </form>
                     </div>
@@ -79,7 +92,59 @@
         </div>
     </div>
     <!-- Contact End -->
+     <style>
+      .alert {
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    position: relative;
+}
+
+.alert-danger {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+.alert-success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.alert-warning {
+    background-color: #fff3cd;
+    color: #856404;
+    border: 1px solid #ffeeba;
+}
+
+.alert-info {
+    background-color: #d1ecf1;
+    color: #0c5460;
+    border: 1px solid #bee5eb;
+}
+
+.close-btn {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    background: none;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+     </style>
     <script>
+    
+
+
+
+
+
+
+
+
     
         document.addEventListener('DOMContentLoaded', function() {
           // Add event listener to "Get A Quote" button
