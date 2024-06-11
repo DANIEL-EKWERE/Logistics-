@@ -53,7 +53,7 @@ class QuoteForm(forms.Form):
         'type': 'time'
     }))
 
-    captcha = ReCaptchaField(widget=ReCaptchaV2Checkbox, error_messages={'required':'complete the reCaptcha and try resubmittin the form again'}, required=True)
+    captcha = ReCaptchaField(widget=ReCaptchaV2Checkbox, error_messages={'required':'complete the reCaptcha and try resubmitting the form again'}, required=True)
 
     class Meta:
         model = GetQuote
