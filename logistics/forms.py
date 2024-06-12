@@ -1,5 +1,6 @@
 from django import forms
 from .models import GetQuote
+from datetime import datetime
 from django_recaptcha.fields import ReCaptchaField
 from django_recaptcha.widgets import ReCaptchaV2Checkbox
 
@@ -46,11 +47,19 @@ class QuoteForm(forms.Form):
     postalCode = forms.CharField(max_length=20, required=True, widget=forms.TextInput(attrs={
         'placeholder': 'Postal Code'
     }))
+
+
+    # Setting the min attribute for date and time fields with seconds
+    current_date = datetime.now().strftime('%Y-%m-%d')
+    current_time = datetime.now().strftime('%H:%M')
+
     date = forms.DateField(required=True, widget=forms.DateInput(attrs={
-        'type': 'date'
+        'type': 'date',
+        'min':current_date,
     }))
     time = forms.TimeField(required=True, widget=forms.TimeInput(attrs={
-        'type': 'time'
+        'type': 'time',
+        'min':current_time,
     }))
 
     captcha = ReCaptchaField(widget=ReCaptchaV2Checkbox, error_messages={'required':'complete the reCaptcha and try resubmitting the form again'}, required=True)
