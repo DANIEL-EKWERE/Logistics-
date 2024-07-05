@@ -37,3 +37,10 @@ class ContactUs(models.Model):
 
     def __str__(self):
         return self.name
+
+class Video(models.Model):
+    title = models.CharField(max_length=100)
+    video_file = models.FileField(upload_to='video/')
+
+    def __str__(self):
+        return self.title

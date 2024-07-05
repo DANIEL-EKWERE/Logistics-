@@ -10,4 +10,5 @@ urlpatterns =[
     path('service/',service, name='service'),
     path('subscription/',subscription, name='subscription'),
     path('contactus/',contactUs,name='contactUs'),
+    path('video/<str:pk>/',VideoView,name='video'),
 ]

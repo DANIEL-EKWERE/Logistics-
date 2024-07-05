@@ -1,7 +1,8 @@
 from django.shortcuts import render,redirect
 from .models import *
+from django.core.mail import send_mail
 from .forms import PersonalInfoForm, AddressForm, QuoteForm
-
+from django.conf import settings
 from django.contrib import messages
 # Create your views here.
 
@@ -33,7 +34,7 @@ def index1(request):
 
 
 def index(request):
-    
+    video = Video.objects.all().first()
     if request.method == 'POST':
         form = QuoteForm(request.POST)
         if form.is_valid():
@@ -54,6 +55,30 @@ def index(request):
             if firstName and lastName and business and email and phone and address1 and address2 and city and state and postalCode and date and time:
                 getQuote = GetQuote.objects.create(firstName=firstName,lastName=lastName,business=business,email=email,phone=phone,address1=address1,address2=address2,city=city,state=state,postalCode=postalCode,date=date,time=time)
                 messages.success(request,'you\'ve successfully requested a quote')
+                # Compose email content
+                message = f"""
+                First Name: {firstName}
+                Last Name: {lastName}
+                Business: {business}
+                Email: {email}
+                Phone: {phone}
+                Address 1: {address1}
+                Address 2: {address2}
+                City: {city}
+                State: {state}
+                Postal Code: {postalCode}
+                Date: {date}
+                Time: {time}
+                """
+                
+                # Send email
+                send_mail(
+                    f'Message from {firstName} {lastName}',
+                    message,
+                    'settings.EMAIL_HOST_USER',
+                    ['ekweredaniel8@gmail.com'],  # Replace with your email
+                    fail_silently=False,
+                )
                 print('success=========================')
 
             else:
@@ -68,7 +93,7 @@ def index(request):
         form = QuoteForm()
             
     
-    return render(request, 'index.html', {'form': form})
+    return render(request, 'index.html', {'form': form,'video':video})
 
 
 
@@ -201,6 +226,14 @@ def about(request):
             
     
     return render(request, 'about.html', {'form': form})
+
+
+
+def VideoView(request, pk):
+    video = Video.objects.get(pk=pk)
+    return render(request, 'video.html', {'video': video})
+
+
 
 def contact(request):
     if request.method == 'POST':

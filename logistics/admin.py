@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import GetQuote, Subscribe, ContactUs
+from .models import GetQuote, Subscribe, ContactUs, Video
 # Register your models here.
 
 
@@ -44,6 +44,18 @@ class ContactUsAdmin(admin.ModelAdmin):
     ordering = ["name", "email"]
 
 
+
+@admin.register(Video)
+class VideoAdmin(admin.ModelAdmin):
+    list_display = (
+        "id",
+        "title",
+    )
+
+    search_fields = (
+        "id",
+        "title"
+    )
 
 
 @admin.register(Subscribe)

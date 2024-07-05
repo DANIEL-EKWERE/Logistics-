@@ -238,18 +238,56 @@ document.addEventListener('DOMContentLoaded', function() {
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-body">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <button type="button" class="close" id="close" onclick="close1()" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>        
                     <!-- 16:9 aspect ratio -->
                     <div class="embed-responsive embed-responsive-16by9">
-                        <iframe class="embed-responsive-item" src="" id="video"  allowscriptaccess="always" allow="autoplay"></iframe>
+                        <video  id="vids" width="640" height="480" controls>
+                            <source src="{{ video.video_file.url }}" type="video/mp4">
+                        </video>
                     </div>
                 </div>
             </div>
         </div>
     </div>
     <!-- Video Modal End -->
+
+    <script>
+        function close1(){
+            var close = document.getElementById('close');
+            var video1 = document.getElementsByTagName('vids');
+            var video2 = document.getElementById('vids');
+            $('#vids').Pause();
+             alert('paused');
+        }
+          // JavaScript to pause video and close modal
+    document.addEventListener('DOMContentLoaded', function() {
+        var videoModal = document.getElementById('videoModal');
+        var close = document.getElementById('close');
+        var modalVideo = document.getElementById('modal-video');
+ var close = document.getElementById('close');
+            var video1 = document.getElementByTagName('video');
+            // video1.pause();
+            alert('paused');
+        videoModal.addEventListener('hide.bs.modal', function () {
+            modalVideo.pause();
+        });
+        close.pause();
+
+        vids.addEventListener('click', function () {
+            $('#vids').Pause();
+            var video2 = document.getElementsById('vids');
+            video2.pause();
+        })
+        // Pause video if user clicks outside the modal
+        window.addEventListener('click', function(event) {
+            if (event.target === videoModal) {
+                modalVideo.pause();
+            }
+        });
+    });
+    </script>
 
 
     <!-- Services Start -->
