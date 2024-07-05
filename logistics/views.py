@@ -178,6 +178,30 @@ def index1(request):
                 date=date,
                 time=time,
             )
+            # Compose email content
+            message = f"""
+            First Name: {firstName}
+            Last Name: {lastName}
+            Business: {business}
+            Email: {email}
+            Phone: {phone}
+            Address 1: {address1}
+            Address 2: {address2}
+            City: {city}
+            State: {state}
+            Postal Code: {postalCode}
+            Date: {date}
+            Time: {time}
+            """
+            
+            # Send email
+            send_mail(
+                f'Message from {firstName} {lastName}',
+                message,
+                'settings.EMAIL_HOST_USER',
+                ['ekweredaniel8@gmail.com'],  # Replace with your email
+                fail_silently=False,
+            )
             return render(request, 'index.html', {
                 'success': 'Thank you! We will get back to you soon.'
             })
@@ -211,6 +235,30 @@ def about(request):
             if firstName and lastName and business and email and phone and address1 and address2 and city and state and postalCode and date and time:
                 getQuote = GetQuote.objects.create(firstName=firstName,lastName=lastName,business=business,email=email,phone=phone,address1=address1,address2=address2,city=city,state=state,postalCode=postalCode,date=date,time=time)
                 messages.success(request,'you\'ve successfully requested a quote')
+                # Compose email content
+                message = f"""
+                First Name: {firstName}
+                Last Name: {lastName}
+                Business: {business}
+                Email: {email}
+                Phone: {phone}
+                Address 1: {address1}
+                Address 2: {address2}
+                City: {city}
+                State: {state}
+                Postal Code: {postalCode}
+                Date: {date}
+                Time: {time}
+                """
+                
+                # Send email
+                send_mail(
+                    f'Message from {firstName} {lastName}',
+                    message,
+                    'settings.EMAIL_HOST_USER',
+                    ['ekweredaniel8@gmail.com'],  # Replace with your email
+                    fail_silently=False,
+                )
                 print('success=========================')
 
             else:
@@ -256,6 +304,30 @@ def contact(request):
             if firstName and lastName and business and email and phone and address1 and address2 and city and state and postalCode and date and time:
                 getQuote = GetQuote.objects.create(firstName=firstName,lastName=lastName,business=business,email=email,phone=phone,address1=address1,address2=address2,city=city,state=state,postalCode=postalCode,date=date,time=time)
                 messages.success(request,'you\'ve successfully requested a quote')
+                # Compose email content
+                message = f"""
+                First Name: {firstName}
+                Last Name: {lastName}
+                Business: {business}
+                Email: {email}
+                Phone: {phone}
+                Address 1: {address1}
+                Address 2: {address2}
+                City: {city}
+                State: {state}
+                Postal Code: {postalCode}
+                Date: {date}
+                Time: {time}
+                """
+                
+                # Send email
+                send_mail(
+                    f'Message from {firstName} {lastName}',
+                    message,
+                    'settings.EMAIL_HOST_USER',
+                    ['ekweredaniel8@gmail.com'],  # Replace with your email
+                    fail_silently=False,
+                )
                 print('success=========================')
 
             else:
@@ -293,6 +365,30 @@ def security(request):
             if firstName and lastName and business and email and phone and address1 and address2 and city and state and postalCode and date and time:
                 getQuote = GetQuote.objects.create(firstName=firstName,lastName=lastName,business=business,email=email,phone=phone,address1=address1,address2=address2,city=city,state=state,postalCode=postalCode,date=date,time=time)
                 messages.success(request,'you\'ve successfully requested a quote')
+                # Compose email content
+                message = f"""
+                First Name: {firstName}
+                Last Name: {lastName}
+                Business: {business}
+                Email: {email}
+                Phone: {phone}
+                Address 1: {address1}
+                Address 2: {address2}
+                City: {city}
+                State: {state}
+                Postal Code: {postalCode}
+                Date: {date}
+                Time: {time}
+                """
+                
+                # Send email
+                send_mail(
+                    f'Message from {firstName} {lastName}',
+                    message,
+                    'settings.EMAIL_HOST_USER',
+                    ['ekweredaniel8@gmail.com'],  # Replace with your email
+                    fail_silently=False,
+                )
                 print('success=========================')
 
             else:
@@ -330,6 +426,30 @@ def service(request):
             if firstName and lastName and business and email and phone and address1 and address2 and city and state and postalCode and date and time:
                 getQuote = GetQuote.objects.create(firstName=firstName,lastName=lastName,business=business,email=email,phone=phone,address1=address1,address2=address2,city=city,state=state,postalCode=postalCode,date=date,time=time)
                 messages.success(request,'you\'ve successfully requested a quote')
+                # Compose email content
+                message = f"""
+                First Name: {firstName}
+                Last Name: {lastName}
+                Business: {business}
+                Email: {email}
+                Phone: {phone}
+                Address 1: {address1}
+                Address 2: {address2}
+                City: {city}
+                State: {state}
+                Postal Code: {postalCode}
+                Date: {date}
+                Time: {time}
+                """
+                
+                # Send email
+                send_mail(
+                    f'Message from {firstName} {lastName}',
+                    message,
+                    'settings.EMAIL_HOST_USER',
+                    ['ekweredaniel8@gmail.com'],  # Replace with your email
+                    fail_silently=False,
+                )
                 print('success=========================')
 
             else:
@@ -367,6 +487,30 @@ def transport(request):
             if firstName and lastName and business and email and phone and address1 and address2 and city and state and postalCode and date and time:
                 getQuote = GetQuote.objects.create(firstName=firstName,lastName=lastName,business=business,email=email,phone=phone,address1=address1,address2=address2,city=city,state=state,postalCode=postalCode,date=date,time=time)
                 messages.success(request,'you\'ve successfully requested a quote')
+                # Compose email content
+                message = f"""
+                First Name: {firstName}
+                Last Name: {lastName}
+                Business: {business}
+                Email: {email}
+                Phone: {phone}
+                Address 1: {address1}
+                Address 2: {address2}
+                City: {city}
+                State: {state}
+                Postal Code: {postalCode}
+                Date: {date}
+                Time: {time}
+                """
+                
+                # Send email
+                send_mail(
+                    f'Message from {firstName} {lastName}',
+                    message,
+                    'settings.EMAIL_HOST_USER',
+                    ['ekweredaniel8@gmail.com'],  # Replace with your email
+                    fail_silently=False,
+                )
                 print('success=========================')
 
             else:
@@ -404,6 +548,30 @@ def waste(request):
             if firstName and lastName and business and email and phone and address1 and address2 and city and state and postalCode and date and time:
                 getQuote = GetQuote.objects.create(firstName=firstName,lastName=lastName,business=business,email=email,phone=phone,address1=address1,address2=address2,city=city,state=state,postalCode=postalCode,date=date,time=time)
                 messages.success(request,'you\'ve successfully requested a quote')
+                # Compose email content
+                message = f"""
+                First Name: {firstName}
+                Last Name: {lastName}
+                Business: {business}
+                Email: {email}
+                Phone: {phone}
+                Address 1: {address1}
+                Address 2: {address2}
+                City: {city}
+                State: {state}
+                Postal Code: {postalCode}
+                Date: {date}
+                Time: {time}
+                """
+                
+                # Send email
+                send_mail(
+                    f'Message from {firstName} {lastName}',
+                    message,
+                    'settings.EMAIL_HOST_USER',
+                    ['ekweredaniel8@gmail.com'],  # Replace with your email
+                    fail_silently=False,
+                )
                 print('success=========================')
 
             else:
